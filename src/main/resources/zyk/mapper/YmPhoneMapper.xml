@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="zyk.dao.YmPhoneMapper" >
+
+    <resultMap id="BaseYmPhoneMap" type="zyk.pojo.YmPhone">
+        <result column="phone" property="phone" jdbcType="VARCHAR" />
+        <result column="ma" property="yqm" jdbcType="VARCHAR" />
+        <result column="yzm" property="yzm" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <select id="selectYmPhoneList">
+        select * from ym_phone
+    </select>
+    <insert id="insertYmPhone" parameterMap="BaseYmPhoneMap">
+        insert into ym_phone(phone,ma,yzm,create_time) values (#{phone,yqm,yzm,NOW()})
+    </insert>
+
+</mapper>
